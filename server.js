@@ -1,5 +1,6 @@
 require('dotenv').config({ quiet: true })
 const express = require('express')
+const path = require('path');
 const app = express()
 const methodOverride = require('method-override')
 const morgan = require('morgan')
@@ -30,7 +31,7 @@ app.use(session({
     })
 }))
 app.use(passUserToView)
-
+app.use(express.static(path.join(__dirname, "public"))); 
 app.get('/', (req, res) => {
     res.render('index.ejs', { title: 'my App'})
 })
