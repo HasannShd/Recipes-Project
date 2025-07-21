@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <%- include('../partials/head') %>
 </head>
 <body>
 
-  <h1>Test: New Page</h1>
+  <h1>Add Your Recipes</h1>
   
 <form action="/recipes" method="POST" class="container mt-4" style="max-width: 600px;">
   <h2 class="mb-4">Create a New Recipe</h2>
@@ -24,10 +26,6 @@
     <textarea name="description" id="description" class="form-control" rows="3" required></textarea>
   </div>
 
-  <div class="mb-3">
-    <label for="price" class="form-label">Price (BHD)</label>
-    <input type="number" name="price" id="price" class="form-control" min="0" required />
-  </div>
 
   <div class="mb-3">
     <label for="image" class="form-label">Image URL</label>

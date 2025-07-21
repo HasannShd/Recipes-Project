@@ -1,4 +1,4 @@
-<%- include('partials/head') %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>All the Recipes</title>
+    <%- include('../partials/head') %>
 </head>
 <body>
 
     <h1>Recipes</h1>
 
     <ul>
-        <% foundrecipes.forEach((recipe) => { %>
+        <% foundrecipe.forEach((recipe) => { %>
             <li>
                 <a href="/recipes/<%= recipe._id %>">
                     <h2><%= recipe.title %></h2>

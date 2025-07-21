@@ -22,15 +22,15 @@ router.get('/new', isSignedIn, (req, res) => {
 
 // VIEW THE INDEX PAGE
 router.get('/', async (req, res) => {
-    const foundrecipes = await recipes.find()
-    res.render('recipes/index.ejs', { foundrecipes })
+    const foundrecipe = await recipes.find()
+    res.render('recipes/index.ejs', { foundrecipe })
 })
 
 // VIEW A SINGLE recipes (SHOW PAGE)
 router.get('/:recipesId', async (req, res) => {
     try {
-        const foundrecipes = await recipes.findById(req.params.recipesId).populate('seller').populate('comments.author')
-        res.render('recipes/show.ejs', { foundrecipes })
+        const foundrecipe = await recipes.findById(req.params.recipesId).populate('seller').populate('comments.author')
+        res.render('recipes/show.ejs', { foundrecipe })
     } catch (error) {
         console.log(error)
         res.redirect('/')
@@ -39,9 +39,9 @@ router.get('/:recipesId', async (req, res) => {
 
 // DELETE recipes FROM DATABASE
 router.delete('/:recipesId', isSignedIn, async (req, res) => {
-    const foundrecipes = await recipes.findById(req.params.recipesId).populate('seller')
-    if (foundrecipes.seller._id.equals(req.session.user._id)) {
-        await foundrecipes.deleteOne()
+    const foundrecipe = await recipes.findById(req.params.recipesId).populate('seller')
+    if (foundrecipe.seller._id.equals(req.session.user._id)) {
+        await foundrecipe.deleteOne()
         return res.redirect('/recipes')
     }
     return res.send('Not authorized')
@@ -49,17 +49,17 @@ router.delete('/:recipesId', isSignedIn, async (req, res) => {
 
 // RENDER THE EDIT FORM VIEW
 router.get('/:recipesId/edit', isSignedIn, async (req, res) => {
-    const foundrecipes = await recipes.findById(req.params.recipesId).populate('seller')
-    if (foundrecipes.seller._id.equals(req.session.user._id)) {
-        return res.render('recipes/edit.ejs', { foundrecipes })
+    const foundrecipe = await recipes.findById(req.params.recipesId).populate('seller')
+    if (foundrecipe.seller._id.equals(req.session.user._id)) {
+        return res.render('recipes/edit.ejs', { foundrecipe })
     } 
     return res.send('Not authorized')
 })
 
 // UPDATE recipes
 router.put('/:recipesId', isSignedIn, async (req, res) => {
-    const foundrecipes = await recipes.findById(req.params.recipesId).populate('seller')
-    if (foundrecipes.seller._id.equals(req.session.user._id)) {
+    const foundrecipe = await recipes.findById(req.params.recipesId).populate('seller')
+    if (foundrecipe.seller._id.equals(req.session.user._id)) {
         await recipes.findByIdAndUpdate(req.params.recipesId, req.body, { new: true })
         return res.redirect(`/recipes/${req.params.recipesId}`)
     } 
@@ -68,10 +68,10 @@ router.put('/:recipesId', isSignedIn, async (req, res) => {
 
 // POST COMMENT FORM TO THE DATABASE
 router.post('/:recipesId/comments', isSignedIn, async (req, res) => {
-    const foundrecipes = await recipes.findById(req.params.recipesId)
+    const foundrecipe = await recipes.findById(req.params.recipesId)
     req.body.author = req.session.user._id
-    foundrecipes.comments.push(req.body)
-    await foundrecipes.save()
+    foundrecipe.comments.push(req.body)
+    await foundrecipe.save()
     res.redirect(`/recipes/${req.params.recipesId}`)
 })
 

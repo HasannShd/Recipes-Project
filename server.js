@@ -37,8 +37,6 @@ app.get('/', (req, res) => {
 
 // ROUTES
 app.use('/auth', authController)
-app.use('/recipes', recipesController)
-// Change from listings to recipes:
 app.use('/recipes', require('./controllers/recipes.controller'))
 
 app.get('/vip-lounge', isSignedIn, (req, res) => {

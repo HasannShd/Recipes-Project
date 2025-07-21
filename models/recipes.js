@@ -15,9 +15,10 @@ const recipesSchema = new mongoose.Schema({
     ingredients: String,
     instructions: String,
     image: {
-        url: { type: String, required: true },
-        cloudinary_id: { type: String, required: true}
-    },
+  url: String,
+  cloudinary_id: String
+}
+,
     seller: { 
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -25,4 +26,4 @@ const recipesSchema = new mongoose.Schema({
     comments: [commentSchema]
 }, { timestamps: true })
 
-module.exports = mongoose.model('recipes', recipesSchema)
+module.exports = mongoose.model('Recipe', recipesSchema)
