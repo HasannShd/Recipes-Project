@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Edit <%= foundrecipes.title %></title>
+</head>
+<body>
+    <h1>Edit <%= foundrecipes.title %></h1>
+    <form action="/recipes/<%= foundrecipes._id %>?_method=PUT" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="<%= foundrecipes.title %>" />
+
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"><%= foundrecipes.description %></textarea>
+
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" value="<%= foundrecipes.price %>"/>
+
+        <label for="image">Image URL:</label>
+        <input type="text" name="image" id="image" value="<%= foundrecipes.image %>" />
+
+        <button type="submit">Edit <%= foundrecipes.title %></button>
+    </form>
+</body>
+</html>

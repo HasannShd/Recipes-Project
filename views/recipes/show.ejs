@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= foundrecipes.title %></title>
+</head>
+<body>
+    <h2><%= foundrecipes.title %></h2>
+    <p><%= foundrecipes.description %></p>
+    <p>SELLER: <%= foundrecipes.seller.username %></p>
+    <p><strong><%= foundrecipes.price %> BHD</strong></p>
+   
+
+    <% if (foundrecipes.seller._id.equals(user._id)) { %>
+        <div class="actions">
+            <form action="/recipes/<%= foundrecipes._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+            <a href="/recipes/<%= foundrecipes._id %>/edit">
+                <button id="edit-button">Edit</button>
+            </a>
+        </div>
+    <% } %>
+
+    <h3>Leave a Comment</h3>
+    <form action="/recipes/<%= foundrecipes._id %>/comments" method="POST">
+        <textarea name="content" id="" required></textarea>
+        <button type="submit">Post Comment</button>
+    </form>
+    <h3>Comments</h3>
+    <ul>
+        <% foundRecipe.comments.forEach((comment) => { %>
+            <li>
+                <%= comment.content %> - <%= comment.author.username %> 
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
