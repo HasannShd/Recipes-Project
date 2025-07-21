@@ -1,4 +1,4 @@
-<%- include('./partials/head') %>
+<%- include('partials/head') %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,11 +9,11 @@
     <title>All the Recipes</title>
 </head>
 <body>
-      <%- include('../partials/head') %>
+
     <h1>Recipes</h1>
 
     <ul>
-        <% foundRecipes.forEach((recipe) => { %>
+        <% foundrecipes.forEach((recipe) => { %>
             <li>
                 <a href="/recipes/<%= recipe._id %>">
                     <h2><%= recipe.title %></h2>
