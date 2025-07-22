@@ -31,9 +31,9 @@ app.use(session({
     })
 }))
 app.use(passUserToView)
-app.use(express.static(path.join(__dirname, "public"))); 
+app.use(express.static(path.join(__dirname, "public")));
 app.get('/', (req, res) => {
-    res.render('index.ejs', { title: 'my App'})
+    res.render('index.ejs', { title: 'my App' })
 })
 
 // ROUTES
