@@ -16,9 +16,11 @@
     <ul>
         <% foundrecipe.forEach((recipe) => { %>
             <li>
-                <a href="/recipes/<%= recipe._id %>">
-                    <h2><%= recipe.title %></h2>
-                </a>
+                <h2>
+                    <a href="/recipes/<%= recipe._id %>" class="test">
+                        <%= recipe.title %>
+                    </a>
+                </h2>
                 <p><%= recipe.description %></p>
                 <p><strong><%= recipe.price %> BHD</strong></p>
                 <img src="<%= recipe.image %>" class="recipes-img" alt="Image of <%= recipe.title %>" />

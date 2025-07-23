@@ -7,6 +7,7 @@ const recipes = require('../models/recipes')
 router.post('/', isSignedIn, async (req, res) => {
   try {
     req.body.seller = req.session.user._id
+    console.log(req.body)
     await recipes.create(req.body)
     res.redirect('/recipes')
   } catch (error) {

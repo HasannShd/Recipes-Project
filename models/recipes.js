@@ -14,10 +14,7 @@ const recipesSchema = new mongoose.Schema({
     description: String,
     ingredients: String,
     instructions: String,
-    image: {
-  url: String,
-  cloudinary_id: String
-}
+    image: String
 ,
     seller: { 
         type: Schema.Types.ObjectId,
