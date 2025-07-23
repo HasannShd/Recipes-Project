@@ -11,7 +11,6 @@ const commentSchema = new mongoose.Schema({
 
 const recipesSchema = new mongoose.Schema({
     title: String,
-    description: String,
     ingredients: String,
     instructions: String,
     image: String

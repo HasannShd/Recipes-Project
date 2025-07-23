@@ -1,31 +1,41 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/style.css">
     <title>All the Recipes</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <%- include('../partials/head') %>
 </head>
+
 <body>
 
-    <h1>Recipes</h1>
+    <h1 class="page-title">🍽️ Find your favourite Recipes</h1>
 
-    <ul>
-        <% foundrecipe.forEach((recipe) => { %>
-            <li>
-                <h2>
-                    <a href="/recipes/<%= recipe._id %>" class="test">
-                        <%= recipe.title %>
-                    </a>
-                </h2>
-                <p><%= recipe.description %></p>
-                <p><strong><%= recipe.price %> BHD</strong></p>
-                <img src="<%= recipe.image %>" class="recipes-img" alt="Image of <%= recipe.title %>" />
-            </li>
-        <% }) %>
-    </ul>
+    <div class="recipe-container">
+        <% foundrecipe.forEach((recipe)=> { %>
+            <div class="recipe-card">
+
+                <div class="recipe-content">
+                    <h2 class="recipe-title">
+                        <a href="/recipes/<%= recipe._id %>">
+                            <%= recipe.title %>
+                        </a>
+                    </h2>
+
+                    <img src="<%= recipe.image %>" class="recipe-img" alt="Image of <%= recipe.title %>">
+
+                    <p class="recipe-ingredients">
+                        <%= recipe.ingredients %>
+                    </p>
+
+                </div>
+            </div>
+            <% }) %>
+    </div>
+
+
 </body>
+
 </html>
