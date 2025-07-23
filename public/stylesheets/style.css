@@ -1,14 +1,42 @@
-
-h1 {
+/* General Reset & Body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffef6;
+  color: #333;
   text-align: center;
-  margin-top: 20px;
+}
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 2rem; */
+}
+
+/* Heading */
+h1.display-4 {
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
   text-decoration: underline;
 }
 
-h2 {
-    color: black;
-    text-decoration: underline; /* This underlines the text */ 
+/* Subheading */
+.head {
+  font-size: 2rem;
+  color: #555;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
 }
+/* Homepage Image */
+.home-page-image {
+  width: 60%;
+  /* height: auto; */
+  border-radius: 12px;
+}
+/* Recipes List */
 .recipes-list {
     text-align: center;
   list-style-type: none;
@@ -22,18 +50,19 @@ h2 {
   padding: 2rem;
   text-align: center;
 }
-
+/* Page Title for all recipes */
 .page-title {
   font-size: 2.5rem;
+  text-align: center;
   font-weight: bold;
   margin-bottom: 2rem;
   color: #333;
+  text-decoration: underline;
 }
 
-/* Grid Container */
+/* Grid Container for the menu */
 .recipe-container {
-    background-color: aqua;
-    width: 100vw;
+  width: 100vw;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -41,12 +70,13 @@ h2 {
 
 /* Recipe Card */
 .recipe-card {
-  background: #eab60b;
+  background:#FFE0B2;
   border-radius: 12px;
   width: 260px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   overflow: hidden;
+  text-align: center;
 }
 
 .recipe-card:hover {
@@ -71,7 +101,7 @@ h2 {
 }
 
 .recipe-title a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #333;
 }
 
@@ -85,15 +115,82 @@ h2 {
   margin-bottom: 0.7rem;
   line-height: 1.4;
 }
+/* Center the show page content */
+.show-recipe-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff8e1;
+  border-radius: 12px;
+  max-width: 400px; /* slightly smaller container */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.recipe-price {
+/* Center the title */
+.show-title {
+  font-size: 2rem;
   font-weight: bold;
-  font-size: 1rem;
-  color: #e65100;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-
-.test {
-    color: black
-    font-size 30px;
+/* Make the image smaller and centered */
+.show-img {
+  width: 180px;      /* smaller width */
+  height: 120px;     /* smaller height */
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem auto;
+  display: block;
 }
+
+/* Center seller and ingredients */
+.show-seller,
+.show-ingredients {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #444;
+  text-align: center;
+  width: 100%;
+}
+
+/* Center actions */
+.show-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Center comment section */
+.show-comment-section {
+  max-width: 700px;           /* Make the section wider */
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;           /* Align content to the left */
+}
+
+.show-comments-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+  text-align: left;           /* Align comments to the left */
+}
+
+.show-comment-item {
+  background-color: #f8f9fa;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  font-size: 1.05rem;         /* Slightly larger font */
+  color: #333;
+  display: block;             /* Full width for each comment */
+  width: 100%;
+}
+

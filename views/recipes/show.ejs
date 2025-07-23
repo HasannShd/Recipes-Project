@@ -3,40 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title><%= foundrecipe.title %></title>
     <%- include('../partials/head') %>
 </head>
 <body>
-    <h2><%= foundrecipe.title %></h2>
-    <p><%= foundrecipe.ingredients %></p> <!-- Changed from description to ingredients -->
-    <p>SELLER: <%= foundrecipe.seller.username %></p>
-    <p><strong><%= foundrecipe.price %> BHD</strong></p>
-   
+  <div class="show-recipe-container">
+    <h2 class="show-title"><%= foundrecipe.title %></h2>
+    <img src="<%= foundrecipe.image %>" alt="Image of <%= foundrecipe.title %>" class="show-img">
+    <p class="show-seller">👤 <strong>Seller:</strong> <%= foundrecipe.seller.username %></p>
+    <p class="show-ingredients"><strong>Ingredients:</strong> <%= foundrecipe.ingredients %></p>
 
-    <% if (foundrecipe.seller._id.equals(user._id)) { %>
-        <div class="actions">
-            <form action="/recipes/<%= foundrecipe._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete</button>
-            </form>
-            <a href="/recipes/<%= foundrecipe._id %>/edit">
-                <button id="edit-button">Edit</button>
-            </a>
-        </div>
+    <% if (foundrecipe.seller._id.toString() === user._id.toString()) { %>
+      <div class="show-actions">
+        <form action="/recipes/<%= foundrecipe._id %>?_method=DELETE" method="POST">
+          <button class="show-btn-delete" type="submit">🗑️ Delete</button>
+        </form>
+        <a href="/recipes/<%= foundrecipe._id %>/edit">
+          <button class="show-btn-edit">✏️ Edit</button>
+        </a>
+      </div>
     <% } %>
+  </div>
 
-    <h3>Leave a Comment</h3>
+  <div class="show-comment-section">
+    <h3>📝 Leave a Comment</h3>
     <form action="/recipes/<%= foundrecipe._id %>/comments" method="POST">
-        <textarea name="content" id="" required></textarea>
-        <button type="submit">Post Comment</button>
+      <textarea name="content" class="show-comment-box" required></textarea>
+      <button class="show-btn-submit" type="submit">Post Comment</button>
     </form>
     <h3>Comments</h3>
-    <ul>
-        <% foundrecipe.comments.forEach((comment) => { %>
-            <li>
-                <%= comment.content %> - <%= comment.author.username %> 
-            </li>
-        <% }) %>
+    <ul class="show-comments-list">
+      <% foundrecipe.comments.forEach((comment) => { %>
+        <li class="show-comment-item">
+          <%= comment.content %> - <%= comment.author.username %>
+        </li>
+      <% }) %>
     </ul>
+  </div>
 </body>
 </html>
