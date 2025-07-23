@@ -72,7 +72,7 @@ h1.display-4 {
 .recipe-card {
   background:#FFE0B2;
   border-radius: 12px;
-  flex: 0 1 300px; /* Each card will try to be 300px wide */
+  flex: 0 1 300px;
   margin-bottom: 2rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
@@ -122,7 +122,7 @@ h1.display-4 {
   padding: 2rem;
   background-color: #fff8e1;
   border-radius: 12px;
-  max-width: 400px; /* slightly smaller container */
+  max-width: 400px; 
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.07);
   display: flex;
@@ -140,8 +140,8 @@ h1.display-4 {
 
 /* Make the image smaller and centered */
 .show-img {
-  width: 180px;      /* smaller width */
-  height: 120px;     /* smaller height */
+  width: 180px;      
+  height: 120px;     
   object-fit: cover;
   border-radius: 10px;
   margin: 1rem auto;
@@ -168,20 +168,20 @@ h1.display-4 {
 
 /* Center comment section */
 .show-comment-section {
-  max-width: 700px;           /* Make the section wider */
+  max-width: 700px;           
   margin: 2rem auto;
   padding: 1.5rem 2rem;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  text-align: left;           /* Align content to the left */
+  text-align: left;           
 }
 
 .show-comments-list {
   list-style: none;
   padding-left: 0;
   margin-top: 1rem;
-  text-align: left;           /* Align comments to the left */
+  text-align: left;           
 }
 
 .show-comment-item {
@@ -189,9 +189,9 @@ h1.display-4 {
   padding: 0.75rem;
   margin-bottom: 0.5rem;
   border-radius: 6px;
-  font-size: 1.05rem;         /* Slightly larger font */
+  font-size: 1.05rem;         
   color: #333;
-  display: block;             /* Full width for each comment */
+  display: block;            
   width: 100%;
 }
 
