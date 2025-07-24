@@ -1,4 +1,4 @@
-Spaceman Game 🚀
+Recipes list 
 
 ![Game Screenshot](./assets/Screenshot.png)
 
