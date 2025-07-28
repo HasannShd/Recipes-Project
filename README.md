@@ -10,7 +10,7 @@ The user can add, edit and delete the recipe
 
 ## 🚀 Getting Started
 
-👉 **Play it here:** [https://spicestack-1683da407b8c.herokuapp.com](https://spicestack-1683da407b8c.herokuapp.com)
+👉 **View the recipes list here** [https://spicestack-1683da407b8c.herokuapp.com](https://spicestack-1683da407b8c.herokuapp.com)
 
 👉 **Planning Materials:**
 - [User Stories](https://trello.com/b/VEOMtdjD/porject-2)
@@ -18,7 +18,7 @@ The user can add, edit and delete the recipe
 
 ## 💡 Technologies Used
 
-- HTML
+- EJS
 - CSS
 - JavaScript
 
